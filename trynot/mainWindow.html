@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+            const electron = require('electron');
+            const {ipcRenderer} = electron;
+
+            ipcRenderer.on('item:notify', function(e, item){
+
+                let myNotification = new Notification('Title', {
+                    body: 'Notification from tray'
+                })
+                
+                myNotification.onclick = () => {
+                    console.log('Notification clicked for tray item')
+                }
+            });
+
+        </script>    
+    </head>
+    <body>
+        This should never be displayed
+    </body>
+</html>
