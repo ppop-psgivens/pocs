@@ -6,8 +6,10 @@
 2. cd into 'trynot' folder
 3. Install node packages and start application
 
-    npm install
-    npm start
+```
+npm install
+npm start
+```
     
 4. Click on the icon      
       
