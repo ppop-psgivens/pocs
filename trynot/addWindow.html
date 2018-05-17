@@ -4,16 +4,95 @@
     <title>Add Shopping List Item</title>
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <style>
+.logo {
+    width: 200px;
+    height: 102px;
+    display: inline-block;
+    background: url('https://sa1s3.patientpop.com/assets/images/patientpop/pp-vertical-logo-green.png') 0 0 no-repeat;
+    background-image: url('https://sa1s3.patientpop.com/assets/images/patientpop/pp-vertical-logo-green.svg'), none;
+    background-size: 200px;
+}
+
+section.main aside .form-wrapper {
+    padding: 10px 0;
+    margin: 20px auto;
+        margin-top: 20px;
+        margin-right: auto;
+        margin-bottom: 20px;
+        margin-left: auto;
+    display: block;
+    max-width: 400px;
+}
+    </style>
 </head>
 <body>
+
     <div class="container">
+
+            <div class="inner">
+
+                    <a href="https://app.patientpop.com" class="logo"></a>
+              
+                    <div class="form-wrapper">
+              
+                      <div class="md-form">
+                        <h1 class="h1-responsive">Sign In </h1>
+                      </div>
+              
+                      
+                      
+                      
+                      
+                <form method="POST" action="https://app.patientpop.com/login" accept-charset="UTF-8" id="sign-in-form" role="form"><input name="_token" value="vNRd0Y58Ffm2amsm0iPYdJueS24LLSZfOOoTNUMM" type="hidden">
+                <input name="rt" type="hidden">
+                <div class="md-form">
+                  <input class="form-control" required="1" id="email" name="email" type="email">
+                  <label for="email">Email</label>
+                </div>
+              
+                <div class="md-form">
+                  <input class="form-control" required="1" id="password" name="password" value="" type="password">
+                  <label for="password">Password</label>
+                </div>
+              
+                <div class="md-form">
+                  <button id="sign-in-submit" type="submit" class="btn btn-primary btn-lg btn-block waves-effect waves-light">Sign in</button>
+                </div>
+              
+                <div class="md-form">
+                  <a href="https://app.patientpop.com/forgotpassword" class="link-primary forgot-pass">Forgot Password?</a>
+                </div>
+              
+                </form>
+              
+                      <div class="md-form">
+                        <div class="call">
+                          <p>
+                            Call for Support<br>
+                            <strong>844-487-8399 press 2</strong>
+                          </p>
+                        </div>
+                      </div>
+              
+                      <div class="md-form footer">
+                        <h6>© Copyright 2014-2018 PatientPop Inc.</h6>
+                        <a href="https://info.patientpop.com/privacy_policy/" target="_blank">Privacy Policy</a> |
+                        <a href="https://info.patientpop.com/terms_and_conditions/" target="_blank">Terms &amp; Conditions</a><br>
+                        <a href="https://info.patientpop.com/terms_of_service/" target="_blank">Terms of Service</a> |
+                        <a href="https://info.patientpop.com/business_associate_agreement/" target="_blank">HIPAA Compliance</a>
+                      </div>
+              
+                    </div>
+                  </div>
+<!-- 
     <form>
         <div>
             <label>Enter Item</label>
             <input type="text" id="item" autofocus>
         </div>
         <button class="btn waves-effect waves-light" type="submit">Add Item</button>
-    </form>
+    </form> -->
 </div>
     <script>
         const electron = require('electron');

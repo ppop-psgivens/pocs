@@ -31,7 +31,11 @@ app.on('ready', function (){
     mainWindow.on('closed', function(){
         app.quit();
     })
-    
+
+    setTimeout(function(event){
+        mainWindow.webContents.send('item:notify', "Item addded from tray");
+    }, 2000)
+
     tray = new Tray(myIcon);
 
     tray.on("click", function (event) {
@@ -40,37 +44,41 @@ app.on('ready', function (){
 
       });
 
-
     // Build menu from template
     const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
-    Menu.setApplicationMenu(mainMenu);
+
+    tray.setContextMenu(mainMenu);
+
+    const appMenu = Menu.buildFromTemplate([]);
+    Menu.setApplicationMenu(appMenu);
 });
 
 const mainMenuTemplate = [
     {
-        label: '&File',
-        submenu:[
-            {
-                label: 'Add Item',
-                click(){
-                    createAddWindow();
-                }
-            },
-            {
-                label: 'Clear Items',
-                click(){
-                    mainWindow.webContents.send('item:clear');
-                }
-            },
-            {
-                label: 'Quit',
-                accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Ctrl+Q',
-                click(){
-                    app.quit();
-                }
-            }             
-        ]
-    }
+        label: 'Notify',
+        click(){
+            mainWindow.webContents.send('item:notify');
+        }
+    },
+    {
+        label: 'Login',
+        click(){
+            addWindow = new BrowserWindow({show: true});
+            addWindow.loadURL(url.format({
+                pathname: path.join(__dirname, 'addWindow.html'),
+                protocol: 'file:',
+                slashes: true
+            }));
+        
+        }
+    },
+    {
+        label: 'Quit',
+        accelerator: process.platform == 'darwin' ? 'Command+Q' : 'Ctrl+Q',
+        click(){
+            app.quit();
+        }
+    }             
 ];
 
 // If mac, add empty object to menu
